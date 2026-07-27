@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic portfolio of Kushal J, Assistant Professor of Electronics and Communication Engineering at Bangalore Institute of Technology.">
+  <title>Kushal J | Assistant Professor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1b2942;
+      --gold: #f7bb23;
+      --ink: #101827;
+      --muted: #667085;
+      --line: #e2e8f0;
+      --paper: #fbfaf7;
+      --white: #fff;
+      --soft: #f1f5f9;
+      --radius: 14px;
+      --shadow: 0 16px 40px rgba(27, 41, 66, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.65;
+    }
+    h1, h2, h3, h4 { margin-top: 0; color: var(--navy); font-family: "Playfair Display", Georgia, serif; line-height: 1.18; }
+    a { color: inherit; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(226, 232, 240, .8);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { color: var(--navy); font-family: "Playfair Display", Georgia, serif; font-size: 1.4rem; font-weight: 800; text-decoration: none; }
+    .links { display: flex; align-items: center; gap: 24px; }
+    .links a { color: var(--muted); font-size: .9rem; font-weight: 600; text-decoration: none; }
+    .links a:hover { color: var(--navy); }
+    .menu { display: none; border: 0; background: transparent; color: var(--navy); font-size: 1.7rem; cursor: pointer; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 660px;
+      display: grid;
+      align-items: center;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(247,187,35,.18), transparent 30%),
+        linear-gradient(135deg, #f8fafc, #fffaf0);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.45fr .85fr; gap: 70px; align-items: center; padding: 92px 0; }
+    .eyebrow { margin: 0 0 14px; color: #b37a00; font-size: .76rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .hero h1 { max-width: 800px; margin-bottom: 24px; font-size: clamp(2.35rem, 4.4vw, 4.35rem); }
+    .hero h1 em { color: #c58a00; }
+    .lead { max-width: 760px; color: var(--muted); font-size: 1.08rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border: 1px solid var(--navy); border-radius: 8px; background: var(--navy); color: white; font-size: .92rem; font-weight: 700; text-decoration: none; }
+    .button.alt { background: white; color: var(--navy); }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .stat { min-height: 150px; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.9); box-shadow: var(--shadow); }
+    .stat strong { display: block; color: var(--navy); font-family: "Playfair Display", Georgia, serif; font-size: 2.7rem; line-height: 1; }
+    .stat span { display: block; margin-top: 11px; color: var(--muted); font-size: .84rem; }
+    section { padding: 92px 0; }
+    section:nth-of-type(even) { background: white; }
+    .section-head { max-width: 760px; margin-bottom: 42px; }
+    .section-head h2 { margin-bottom: 12px; font-size: clamp(2rem, 3.5vw, 3.1rem); }
+    .section-head p { margin: 0; color: var(--muted); }
+    .rule { width: 64px; height: 4px; margin-top: 18px; border-radius: 4px; background: var(--gold); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: white; box-shadow: 0 8px 24px rgba(27,41,66,.04); }
+    .card h3 { margin-bottom: 10px; font-size: 1.25rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .tag { display: inline-block; margin: 3px 6px 3px 0; padding: 5px 10px; border-radius: 999px; background: #fff6d8; color: #8a5c00; font-size: .78rem; font-weight: 700; }
+    .timeline { display: grid; gap: 22px; }
+    .timeline .card { border-left: 5px solid var(--gold); }
+    .meta { margin-bottom: 10px !important; color: #a66f00 !important; font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .list { margin: 0; padding-left: 20px; color: var(--muted); }
+    .list li + li { margin-top: 9px; }
+    .publication { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .publication:last-child { border-bottom: 0; }
+    .publication h4 { margin-bottom: 7px; font-family: Inter, sans-serif; font-size: 1rem; line-height: 1.5; }
+    .publication p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .course { display: flex; flex-direction: column; }
+    .course .code { width: fit-content; padding: 5px 10px; border-radius: 999px; background: #e8eef7; color: var(--navy); font-size: .75rem; font-weight: 800; }
+    .course h3 { margin: 18px 0 10px; }
+    .course .resources { margin-top: auto; padding-top: 22px; }
+    .resource { display: block; margin-top: 8px; color: #9a6800; font-size: .88rem; font-weight: 700; text-decoration: none; }
+    .resource:hover { text-decoration: underline; }
+    .contact { display: grid; grid-template-columns: .9fr 1.1fr; gap: 26px; }
+    .contact-panel { padding: 34px; border-radius: var(--radius); background: var(--navy); color: white; }
+    .contact-panel h3 { color: white; }
+    .contact-panel p, .contact-panel a { color: rgba(255,255,255,.78); }
+    .contact-panel a { word-break: break-word; }
+    .contact-card { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+    footer { padding: 45px 0; background: var(--navy); color: rgba(255,255,255,.65); text-align: center; font-size: .86rem; }
+    .top { position: fixed; right: 22px; bottom: 22px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: var(--navy); font-weight: 900; text-decoration: none; box-shadow: var(--shadow); }
+    @media (max-width: 900px) {
+      .hero-grid, .contact { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats { max-width: 640px; }
+      .links { display: none; position: absolute; top: 76px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 20px 22px; border-bottom: 1px solid var(--line); background: white; }
+      .links.open { display: flex; }
+      .links a { padding: 12px 0; }
+      .menu { display: block; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1160px); }
+      section { padding: 72px 0; }
+      .hero-grid { padding: 70px 0; gap: 44px; }
+      .grid-2, .grid-3, .stats { grid-template-columns: 1fr; }
+      .stat { min-height: 120px; }
+      .card, .contact-panel, .contact-card { padding: 23px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">Kushal J</a>
+      <button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="links" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Academic Portfolio</p>
+          <h1>Assistant Professor, <em>Electronics &amp; Communication Engineering</em></h1>
+          <p class="lead">Research-driven Electronics and Communication Engineer, Assistant Professor, and Ph.D. Research Scholar with a strong focus on Artificial Intelligence, Machine Learning, and next-generation communication systems. 5+ years of industry experience in 5G UE simulation and advanced wireless system development.</p>
+          <div class="actions">
+            <a class="button" href="#research">View Research</a>
+            <a class="button alt" href="#courses">Course Materials</a>
+          </div>
+        </div>
+        <div class="stats" aria-label="Career highlights">
+          <div class="stat"><strong>5+</strong><span>Years of Industry Experience</span></div>
+          <div class="stat"><strong>6+</strong><span>Research Publications</span></div>
+          <div class="stat"><strong>2</strong><span>Patents Filed</span></div>
+          <div class="stat"><strong>1</strong><span>Book Published</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">About</p>
+          <h2>Academic background and professional profile</h2>
+          <p>Assistant Professor at Bangalore Institute of Technology and Ph.D. Research Scholar working at the intersection of AI and sustainable communication networks.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Doctor of Philosophy — Pursuing</h3>
+            <p class="meta">Research Scholar</p>
+            <p>Research Domain: AI-Driven Carbon-Aware Digital Twin Framework for Sustainable 6G IoT Ecosystem.</p>
+          </article>
+          <article class="card">
+            <h3>M.Tech — Digital Electronics &amp; Communication Engineering</h3>
+            <p>Specialization in Digital Electronics and Communication Engineering.</p>
+          </article>
+          <article class="card">
+            <h3>B.E — Electronics &amp; Communication Engineering</h3>
+            <p class="meta">Bangalore Institute of Technology</p>
+            <p>Undergraduate degree in Electronics and Communication Engineering.</p>
+          </article>
+          <article class="card">
+            <h3>Technical Expertise</h3>
+            <p>
+              <span class="tag">Artificial Intelligence</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">5G / 6G</span>
+              <span class="tag">Wireless Communication</span>
+              <span class="tag">IoT</span>
+              <span class="tag">Python</span>
+              <span class="tag">NS-3</span>
+              <span class="tag">MATLAB</span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Research</p>
+          <h2>AI for sustainable wireless networks</h2>
+          <p>Research interests, patents, publications, conference work, and authored books.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="grid-3">
+          <article class="card"><h3>Carbon-Aware Digital Twins</h3><p>AI-driven carbon-aware digital twin frameworks for sustainable 6G IoT ecosystems.</p></article>
+          <article class="card"><h3>Green Communication</h3><p>Sustainable and energy-efficient communication networks with carbon-aware optimization.</p></article>
+          <article class="card"><h3>Intelligent 5G/6G</h3><p>AI-driven network optimization for intelligent 5G and beyond communication systems.</p></article>
+        </div>
+
+        <div class="grid-2" style="margin-top:28px">
+          <article class="card">
+            <h3>Patents</h3>
+            <div class="publication">
+              <h4>Smart IoT Enabled Air Pollution Monitoring &amp; Analysis System</h4>
+              <p>Application Filed — Grant Awaiting</p>
+            </div>
+            <div class="publication">
+              <h4>AI &amp; IoT Driven System to Monitor Solar Energy Intensity for Energy Efficiency</h4>
+              <p>Application Filed — Grant Awaiting</p>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Book</h3>
+            <div class="publication">
+              <h4>Generative AI &amp; Prompt Engineering</h4>
+              <p>Kushal J · 2024 · ISBN 978-81-69452-21-2</p>
+            </div>
+            <h3 style="margin-top:28px">Novel</h3>
+            <div class="publication">
+              <h4>My Epiphanies</h4>
+              <p>Available on Kindle · ASIN B0GMKS8VN3</p>
+              <a class="resource" href="https://www.amazon.in/dp/B0GMKS8VN3" target="_blank" rel="noopener">View on Amazon →</a>
+            </div>
+          </article>
+        </div>
+
+        <article class="card" style="margin-top:28px">
+          <h3>Selected Publications</h3>
+          <div class="publication"><h4>AI-Driven Simulation Framework for Dynamic Process Scheduling and Deadlock Resolution in Operating Systems</h4><p>Kushal J et al. · Peer-reviewed Journal · 2024</p></div>
+          <div class="publication"><h4>AI Driven Clinical Nutrition Decision Support System for Post Kidney Transplant Patients: A Simulation Based Evaluation</h4><p>Kushal J et al. · Peer-reviewed Journal · 2024</p></div>
+          <div class="publication"><h4>AI Based Handover Selection Mechanism in 5G</h4><p>Kushal J et al. · Peer-reviewed Journal · 2023</p></div>
+          <div class="publication"><h4>Multihop D2D Communication to Minimize and Balance SAR in 5G</h4><p>Kushal J et al. · Peer-reviewed Journal · 2023</p></div>
+          <div class="publication"><h4>Multihop D2D Communication to Minimize and Balance SAR in 5G: A Review</h4><p>International Conference · 2023 · Best Paper Award</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Experience</p>
+          <h2>Academic and industry experience</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="timeline">
+          <article class="card">
+            <p class="meta">Nov 2025 – Present</p>
+            <h3>Assistant Professor</h3>
+            <p><strong>Bangalore Institute of Technology — Department of ECE</strong></p>
+            <p style="margin-top:10px">Actively engaged in undergraduate teaching, student mentoring, and academic research guidance. Contributing to department-level and college-level academic administration, student-industry collaboration initiatives, and academic project execution.</p>
+          </article>
+          <article class="card">
+            <p class="meta">2020 – Oct 2025</p>
+            <h3>Research &amp; Development Engineer</h3>
+            <p><strong>Telecom &amp; Networks</strong></p>
+            <p style="margin-top:10px">Worked on 5G User Equipment simulation for advanced wireless system validation. Contributed to ORAN, VRAN, 5G Layer 3 call flows, maximum throughput scenarios, and Voice over New Radio. Developed automated test cases using Robot Framework and Python. Awarded Best Contributor Excellence Award.</p>
+          </article>
+        </div>
+        <div class="grid-2" style="margin-top:28px">
+          <article class="card">
+            <h3>Certifications and Recognition</h3>
+            <ul class="list">
+              <li>Satellite Photogrammetry &amp; Applications — ISRO</li>
+              <li>Project Management — LinkedIn Learning</li>
+              <li>Scrum Master Certification — LinkedIn Learning</li>
+              <li>Executive Leadership — LinkedIn Learning</li>
+              <li>5G White Belt &amp; 18+ Nokia Bell Labs Certifications</li>
+              <li>Best Contributor Excellence Award — Nokia Networks</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Faculty Development</h3>
+            <ul class="list">
+              <li>Advanced Concepts and Applications in Quantum Computing, Machine Learning and Deep Learning — BIT Mesra</li>
+              <li>Edge-Enabled IoT Systems for Industry 4.0 Applications</li>
+              <li>Innovative Teaching and Learning Pedagogy — Research Foundation of India</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Teaching</p>
+          <h2>Courses and learning materials</h2>
+          <p>Lecture notes, question banks, assignments, and supplementary resources.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="grid-3">
+          <article class="card course">
+            <span class="code">AI-UG</span>
+            <h3>Artificial Intelligence</h3>
+            <p>Search algorithms, knowledge representation, machine learning fundamentals, and neural networks.</p>
+            <div class="resources">
+              <a class="resource" href="https://drive.google.com/file/d/16-rL8RGFUdaxVihrXhjw4A5A0li2iPId/view?usp=drive_link" target="_blank" rel="noopener">Lecture Notes — All Modules →</a>
+            </div>
+          </article>
+          <article class="card course">
+            <span class="code">EIT-UG</span>
+            <h3>Essentials of Information Technology</h3>
+            <p>Computer fundamentals, operating systems, networking, databases, web technologies, and software tools.</p>
+            <div class="resources">
+              <a class="resource" href="https://drive.google.com/file/d/1mwxg88ZXMcjqrZ2kfyZqvJCbLTA2HWyQ/view?usp=drive_link" target="_blank" rel="noopener">Notes &amp; Question Bank →</a>
+            </div>
+          </article>
+          <article class="card course">
+            <span class="code">CP-UG</span>
+            <h3>C Programming</h3>
+            <p>Structured programming, functions, arrays, pointers, structures, file handling, and lab practice.</p>
+            <div class="resources">
+              <a class="resource" href="https://drive.google.com/file/d/1wUEWuqqjUoVr6ZH7u0i4t3Iuz6T8jB1u/view?usp=drive_link" target="_blank" rel="noopener">Lecture Notes →</a>
+              <a class="resource" href="https://drive.google.com/file/d/1-JR_zdT9S0QF8seAQ7qMYoKj2oYwqWdf/view?usp=drive_link" target="_blank" rel="noopener">Question Bank →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Contact</p>
+          <h2>Get in touch</h2>
+          <p>For academic inquiries, research collaborations, or student queries.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="contact">
+          <div class="contact-panel">
+            <h3>Kushal J</h3>
+            <p>Assistant Professor<br>Department of Electronics &amp; Communication Engineering<br>Bangalore Institute of Technology</p>
+            <p><strong>Office:</strong><br>Dept. of ECE, Bangalore Institute of Technology, Bangalore</p>
+            <p><strong>Office hours:</strong><br>By appointment — contact via email</p>
+          </div>
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p>Personal: <a href="mailto:kushaljayaprakash.g@gmail.com">kushaljayaprakash.g@gmail.com</a></p>
+            <p>Work: <a href="mailto:Kushalj@bit-bangalore.edu.in">Kushalj@bit-bangalore.edu.in</a></p>
+            <div class="actions">
+              <a class="button" href="mailto:Kushalj@bit-bangalore.edu.in?subject=Academic%20Enquiry">Send an Email</a>
+            </div>
+            <p style="margin-top:24px;color:var(--muted)">Member — International Association of Engineers (IAENG)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Kushal J. All rights reserved.</div>
+  </footer>
+  <a class="top" href="#home" aria-label="Back to top">↑</a>
+  <script>
+    const button = document.querySelector(".menu");
+    const links = document.querySelector(".links");
+    button.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(open));
+    });
+    links.addEventListener("click", () => {
+      links.classList.remove("open");
+      button.setAttribute("aria-expanded", "false");
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
