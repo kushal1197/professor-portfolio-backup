@@ -104,6 +104,17 @@
     .contact-card { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
     footer { padding: 45px 0; background: var(--navy); color: rgba(255,255,255,.65); text-align: center; font-size: .86rem; }
     .top { position: fixed; right: 22px; bottom: 22px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: var(--navy); font-weight: 900; text-decoration: none; box-shadow: var(--shadow); }
+    .institution-logo {
+  display: block;
+  width: min(100%, 480px);
+  margin-bottom: 30px;
+}
+
+.institution-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
     @media (max-width: 900px) {
       .hero-grid, .contact { grid-template-columns: 1fr; }
       .hero { min-height: auto; }
@@ -144,6 +155,13 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
+          <a href="https://bit-bangalore.edu.in/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="institution-logo">
+  <img src="bit-logo.webp"
+       alt="Bangalore Institute of Technology">
+</a>
           <p class="eyebrow">Academic Portfolio</p>
           <h1>Assistant Professor, <em>Electronics &amp; Communication Engineering</em></h1>
           <div class="actions">
